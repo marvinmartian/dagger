@@ -154,7 +154,8 @@ type parsedRefString struct {
 func parseRefString(refString string) parsedRefString {
 	var parsed parsedRefString
 	parsed.modPath, parsed.modVersion, parsed.hasVersion = strings.Cut(refString, "@")
-	parsed.isGitHub = strings.HasPrefix(parsed.modPath, "code.engine.sourcefire.com/")
+	// parsed.isGitHub = strings.HasPrefix(parsed.modPath, "code.engine.sourcefire.com/")
+	parsed.isGitHub = true
 
 	if !parsed.hasVersion && !parsed.isGitHub {
 		parsed.kind = core.ModuleSourceKindLocal
